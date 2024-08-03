@@ -1,4 +1,4 @@
-streamlit as st
+import streamlit as st
 from transformer import DistilBertTokenizer, DistinBertForQuestionAnswering
 import torch
 
