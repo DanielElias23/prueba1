@@ -6,7 +6,7 @@ import torch
 @st.cache(allow_output_mutation=True)
 def get_model():
     tokenizer = BertTokenizer.from_pretrained('dccuchile/bert-base-spanish-wwm-uncased')
-    model = BertForSequenceClassification.from_pretrained("pnichite/YTFineTuneBert")
+    model = BertForSequenceClassification.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
     return tokenizer,model
 
 
