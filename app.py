@@ -1,5 +1,5 @@
 import streamlit as st
-from transformer import DistilBertTokenizer, DistinBertForQuestionAnswering
+from transformers import BertTokenizer, BertForQuestionAnswering
 import torch
 
 tokenizer = BertTokenizer.from_pretrained("bert-base-spanish-wwm-cased")
