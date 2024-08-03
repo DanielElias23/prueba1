@@ -1,17 +1,26 @@
 import streamlit as st
-from transformers import BertTokenizer, BertForQuestionAnswering
+from transformers import AutoModel, AutoTokenizer   #BertTokenizer, BertForQuestionAnswering
 import torch
 
-tokenizer = BertTokenizer.from_pretrained("bert-base-spanish-wwm-cased")
-model = BertForQuestionAnswering.from_pretrained("bert-base-spanish-wwm-cased")
+tokenizer = AutoModel.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
+model = AutoTokenizer.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
 
 st.title("Sistema de preguntas con BETO")
 
 question = st.text_area("Introduce una pregunta")
-context = st.text_area("Introduce un contexto")
+#context = st.text_area("Introduce un contexto")
 
 if st.button("Responder"):
-        inputs = tokenizer(question, context, return_tensors="pt") 
+            input_ids = tokenizer("Hello, my dog is cuteHello world!", return_tensors="pt")
+            outputs = model(input_ids, labels=input_ids)
+            #loss, prediction_scores = outputs[:2]
+            st.write(f"{outputs}")
+            #st.write(f"{loss} y {prediction_scores}")
+
+       
+"""inputs = tokenizer("Hola")
+        #outputs = model(**inputs)
+        #st.write(outputs) 
         with torch.no_grad():
              outputs = model(**inputs)
              
@@ -22,4 +31,4 @@ if st.button("Responder"):
         answer = tokenizer.convert_tokens_to.string(answer_tokens)
         
         st.write(f"Respuesta: {answer}")
-        
+"""
