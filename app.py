@@ -10,6 +10,8 @@ st.title("Sistema de preguntas con BETO")
 question = st.text_area("Introduce una pregunta")
 context = st.text_area("Introduce un contexto")
 
+if st.button("Responder"):
+        inputs = tokenizer(question, context, return_tensors="pt") 
         with torch.no_grad():
              outputs = model(**inputs)
              
