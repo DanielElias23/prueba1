@@ -19,5 +19,5 @@ context = st.text_area("Introduce un contexto")
         answer_tokens = tokenizer.convert_ids_to_tokens(inputs.input_ids[0][answer_start:answer_end])
         answer = tokenizer.convert_tokens_to.string(answer_tokens)
         
-        st.write(f"Respuesta: {answer}"))
+        st.write(f"Respuesta: {answer}")
         
